@@ -1,0 +1,77 @@
+.hero-sec {
+    width: 80%;
+    margin: auto;
+    height: calc(100vh - 13vh); /* Adjusts height based on navbar */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.heading-h1 {
+    font-size: 5rem;
+    position: relative;
+}
+
+.heading-h1::before {
+    content: "New";
+    position: absolute;
+    top: -60px;
+    color: var(--dark-blue);
+    font-family: 'Dancing Script', cursive; 
+}
+
+.product_name {
+    font-size: 1.7rem;
+}
+
+.pricing {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.primary-btn, .secondary-btn {
+    font-size: 1.1rem;
+    border: none;
+    padding: 1rem 1.7rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.btn-container {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.primary-btn {
+    background-color: var(--light-gray);
+}
+
+.secondary-btn {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.primary-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    transform: scale(1);
+}
+
+/* --media Queries-- */
+
+@media screen and (max-width: 500px) {
+    .hero-image {
+        display: none; 
+    }
+
+    .heading-h1 {
+        font-size: 3rem; 
+    }
+
+    .hero-sec {
+        justify-content: flex-start; 
+    }
+}

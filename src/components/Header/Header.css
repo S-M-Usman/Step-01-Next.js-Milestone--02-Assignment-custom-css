@@ -1,0 +1,139 @@
+nav {
+    width: 80%;
+    height: 13vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.logo {
+    font-size: 3.3rem;
+    color: var(--dark-blue);
+    font-family: 'Dancing Script', cursive; 
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    margin-left: 22px;
+    color: var(--dark-gray);
+    font-size: 1rem;
+    letter-spacing: .03rem;
+    position: relative;
+}
+
+.nav-links li a::after, .nav-links li .active::after {
+    content: "";
+    background: var(--dark-gray);
+    position: absolute;
+    height: .15rem;
+    width: 100%;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform .5s ease;
+    transform-origin: right;
+}
+
+.nav-links li a:hover::after, .nav-links li .active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 5;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-gray);
+    transition: 0.3s;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links.open {
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: var(--light-gray);
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+        gap: 2rem;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links li a {
+        font-size: 1.3rem;
+        margin-left: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+.close-btn {
+    display: none;
+    font-size: 2rem;
+    color: var(--dark-gray);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 40;
+}
+
+@media (max-width: 768px) {
+    .close-btn {
+        display: block;
+    }
+}
+
+.nav-links.open + .overlay {
+    display: block;
+}
